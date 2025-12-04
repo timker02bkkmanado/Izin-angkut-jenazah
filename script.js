@@ -180,6 +180,7 @@ async function submitForm(e) {
         tgl_pengiriman: form.tgl_pengiriman.value,
         nama_penerima: form.nama_penerima.value,
         no_penerima: form.no_penerima.value,
+        email_penerima: form.email_penerima.value,
         status: "proses",
         tanggal_permohonan: new Date().toLocaleDateString('id-ID'),
         dokumen: {
@@ -246,3 +247,4 @@ function exportData() {
   link.click();
   document.body.removeChild(link);
 }
+
