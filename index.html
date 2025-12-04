@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Website Izin Angkut Jenazah</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Menu Utama -->
+    <div id="main-menu">
+         <!-- Tambahkan gambar di sini -->
+    <img src="logo-kemenkes.png" alt="Logo Kemenkes" class="kemenkes-logo">
+        <h1>Izin Angkut Jenazah</h1>
+        <div class="menu-list">
+            <button class="menu-btn" onclick="showAdminLogin()">Admin</button>
+            <button class="menu-btn" onclick="showPemohonForm()">Pemohon</button>
+        </div>
+    </div>
+
+    <!-- Login Admin -->
+    <div id="admin-login" class="hidden">
+        <h2>Login Admin</h2>
+        <label for="admin-password">Masukkan password admin:</label>
+        <input type="password" id="admin-password" placeholder="Password admin">
+        <button onclick="loginAdmin()">Login</button>
+        <p id="admin-error" class="error"></p>
+    </div>
+
+    <!-- Panel Admin -->
+    <div id="admin-panel" class="hidden">
+        <h2>Panel Admin</h2>
+        <p>Selamat datang, Admin!</p>
+        <button class="secondary-btn" onclick="logoutAdmin()">Logout</button>
+        <button onclick="exportData()">Ekspor Data (CSV)</button>
+        <div id="permohonan-list"></div>
+    </div>
+
+    <!-- Form Pemohon -->
+    <form id="pemohon-form" class="hidden" onsubmit="submitForm(event)">
+        <h2>Form Pemohon Izin Angkut Jenazah</h2>
+        <fieldset>
+            <legend>Biodata Pemohon</legend>
+            <label>Nama Pemohon:
+                <input type="text" name="nama_pemohon" required>
+            </label>
+            <label>No HP/WA:
+                <input type="tel" name="no_hp" required>
+            </label>
+            <label>Alamat:
+                <input type="text" name="alamat_pemohon" required>
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Biodata Jenazah</legend>
+            <label>Nama Jenazah:
+                <input type="text" name="nama_jenazah" required>
+            </label>
+            <label>Tgl Lahir:
+                <input type="date" name="tgl_lahir" required>
+            </label>
+            <label>Jenis Kelamin:
+                <select name="jenis_kelamin" required>
+                    <option value="">Pilih</option>
+                    <option value="Perempuan">Perempuan</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                </select>
+            </label>
+            <label>Kebangsaan:
+                <select name="kebangsaan" required>
+                    <option value="">Pilih</option>
+                    <option value="WNI">WNI</option>
+                    <option value="WNA">WNA</option>
+                </select>
+            </label>
+            <label>Alamat Terakhir:
+                <input type="text" name="alamat_terakhir" required>
+            </label>
+            <label>Jenazah akan dikirim dengan maskapai/pelayaran:
+                <input type="text" name="maskapai_pelayaran" required>
+            </label>
+            <label>Tanggal Pengiriman:
+                <input type="date" name="tgl_pengiriman" required>
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Biodata Penerima</legend>
+            <label>Nama Keluarga Tujuan:
+                <input type="text" name="nama_penerima" required>
+            </label>
+            <label>No Telp/WA:
+                <input type="tel" name="no_penerima" required>
+            </label>
+            <label>Email Penerima:
+  <input type="email" name="email_penerima" required>
+</label>
+        </fieldset>
+        <fieldset>
+            <legend>Upload Dokumen Persyaratan</legend>
+            <label>Surat Keterangan Kematian:
+                <input type="file" name="foto_kematian" accept="image/*,application/pdf" required>
+            </label>
+            <label>Surat Keterangan Bebas Penyakit Menular:
+                <input type="file" name="foto_bebas_penyakit" accept="image/*,application/pdf" required>
+            </label>
+            <label>Surat Keterangan Pengawetan/Formulir:
+                <input type="file" name="foto_pengawetan" accept="image/*,application/pdf" required>
+            </label>
+            <label>Surat Keterangan Pengepakan:
+                <input type="file" name="foto_pengepakan" accept="image/*,application/pdf" required>
+            </label>
+            <label>Surat Keterangan Pemetian Disaksikan Aparat:
+                <input type="file" name="foto_pemetian" accept="image/*,application/pdf" required>
+            </label>
+        </fieldset>
+        <button type="submit">Kirim Permohonan</button>
+        <button type="button" class="secondary-btn" onclick="backToMenu()">Kembali</button>
+    </form>
+
+    <!-- Notifikasi Berhasil / Status -->
+  <div id="success-message" class="hidden modern-success">
+  <div class="success-card">
+    <div class="checkmark">✅</div>
+    <h2>Permohonan Terkirim!</h2>
+    <p>
+      Terima kasih, data telah terkirim.<br>
+      Silakan tunggu notifikasi selanjutnya.
+    </p>
+    <button onclick="backToMenu()">Kembali ke Menu</button>
+  </div>
+</div>
+
+
+
+    <script src="script.js"></script>
+    <div id="imageModal" class="modal hidden">
+  <span class="close" onclick="closeImageModal()">&times;</span>
+  <img id="previewImage" class="modal-content" alt="Pratinjau Gambar">
+</div>
+
+</body>
+</html>

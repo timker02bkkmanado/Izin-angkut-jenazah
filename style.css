@@ -1,0 +1,451 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #eafdf4;
+    margin: 0;
+    padding: 0;
+}
+
+
+#main-menu {
+    background: linear-gradient(135deg, #eaffd0 60%, #d6ffe6 100%);
+    border: 3px solid #43b02a;
+    box-shadow: 0 6px 24px rgba(67, 176, 42, 0.12);
+    border-radius: 16px;
+    max-width: 430px;
+    width: 100%;
+    padding: 32px 26px 28px 26px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.menu-list {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.menu-btn {
+    padding: 12px 34px;
+    background: #43b02a;
+    color: #fff;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(67, 176, 42, 0.10);
+    transition: background 0.2s;
+}
+.menu-btn:hover {
+    background: #1ea7e1;
+    color: #fff;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #43b02a;
+    font-weight: bold;
+    text-shadow: 0 2px 8px #d6ffe6;
+}
+h2 {
+    font-size: 1.3rem;
+    margin-bottom: 14px;
+    text-align: center;
+    color: #1ea7e1;
+}
+
+#admin-login, #admin-panel, #pemohon-form, #success-message {
+    max-width: 430px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 32px 26px 22px 26px;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(67, 176, 42, 0.08);
+    border: 2px solid #ffe600;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 22px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    background: #1ea7e1;
+    color: #fff;
+    cursor: pointer;
+    margin: 8px 8px 0 0;
+    transition: background 0.2s;
+}
+button[type="button"], .secondary-btn {
+    background: #ffe600;
+    color: #234;
+}
+button:hover {
+    background: #43b02a;
+    color: #fff;
+}
+fieldset {
+    margin-bottom: 20px;
+    border: 2px solid #43b02a;
+    padding: 18px 14px 14px 14px;
+    border-radius: 10px;
+    background: #f7ffe6;
+}
+legend {
+    padding: 0 8px;
+    font-weight: bold;
+    color: #43b02a;
+    font-size: 1rem;
+    background: #ffe600;
+    border-radius: 6px;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #234;
+}
+input, select {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    border: 1.5px solid #1ea7e1;
+    font-size: 15px;
+    box-sizing: border-box;
+    background: #eafdf4;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.5);
+}
+
+.error { color: red; margin-top: 8px;}
+.hidden { display: none; }
+
+/* Responsive mobile */
+@media (max-width: 600px) {
+    body {
+        align-items: flex-start;
+        padding: 20px 0;
+    }
+    #main-menu, #admin-login, #admin-panel, #pemohon-form, #success-message {
+        max-width: 98vw;
+        margin: 16px;
+        padding: 16px 6vw;
+    }
+    .menu-list {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .menu-btn,
+    button {
+        width: 100%;
+        margin: 8px 0;
+    }
+    fieldset {
+        padding: 10px 4vw;
+    }
+    .status-proses {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.status-acc {
+  color: #43b02a;
+  font-weight: bold;
+}
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal .close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.modal .close:hover { color: #ffe600; }
+
+}
+/* --- Tambahan untuk memperbesar tampilan di layar laptop --- */
+@media (min-width: 1200px) {
+  body {
+    zoom: 1.2; /* perbesar tampilan keseluruhan 20% */
+  }
+
+  #main-menu,
+  #admin-login,
+  #admin-panel,
+  #pemohon-form,
+  #success-message {
+    max-width: 600px; /* Lebar tampilan diperbesar sedikit */
+  }
+
+  h1 {
+    font-size: 2.6rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .menu-btn,
+  button {
+    font-size: 1.2rem;
+    padding: 14px 38px;
+  }
+
+  input,
+  select {
+    font-size: 17px;
+    padding: 10px 12px;
+  }
+}
+/* --- Perbaikan tampilan modal gambar --- */
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal img {
+  width: auto;
+  height: auto;
+  max-width: 90vw;  /* maksimal 90% lebar layar */
+  max-height: 85vh; /* maksimal 85% tinggi layar */
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  object-fit: contain;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal .close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.modal .close:hover {
+  color: #ffe600;
+}
+/* --- Tombol Modern dengan Efek Glow dan Transisi Halus --- */
+button,
+.menu-btn,
+.secondary-btn {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #43b02a, #1ea7e1);
+  color: white;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+button:hover,
+.menu-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(30, 167, 225, 0.4);
+  background: linear-gradient(135deg, #1ea7e1, #43b02a);
+}
+
+/* Tombol Sekunder (kuning) */
+.secondary-btn {
+  background: linear-gradient(135deg, #ffe600, #ffcc00);
+  color: #234;
+}
+.secondary-btn:hover {
+  background: linear-gradient(135deg, #fff34c, #ffe600);
+  box-shadow: 0 8px 20px rgba(255, 230, 0, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Efek Ripple Saat Diklik */
+button::after,
+.menu-btn::after,
+.secondary-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+  z-index: 0;
+}
+
+button:active::after,
+.menu-btn:active::after,
+.secondary-btn:active::after {
+  width: 200%;
+  height: 500%;
+  opacity: 0;
+  transition: 0s;
+}
+/* --- Tampilan modern untuk pesan sukses --- */
+.modern-success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  animation: fadeInUp 0.8s ease;
+}
+
+.success-card {
+  background: #ffffff;
+  border: 3px solid #ffe600;
+  border-radius: 20px;
+  padding: 40px 50px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  animation: popUp 0.8s ease-out;
+}
+
+.success-card h2 {
+  color: #1ea7e1;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.success-card p {
+  color: #234;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.success-card strong {
+  color: #43b02a;
+}
+
+.checkmark {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  animation: bounce 0.8s ease;
+}
+
+.success-card button {
+  background: linear-gradient(135deg, #43b02a, #1ea7e1);
+  border: none;
+  color: #fff;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(30, 167, 225, 0.3);
+  transition: all 0.3s ease;
+}
+
+.success-card button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(30, 167, 225, 0.5);
+}
+
+/* --- Animasi --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.kemenkes-logo {
+    display: block;
+    margin: 0 auto 16px auto;
+    max-width: 80px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    box-shadow: 0 3px 12px rgba(67,176,42,0.09);
+    border-radius: 12px;
+    background: #fff;
+    padding: 8px;
+    object-fit: contain;
+    opacity: 0.55; /* <<< tambahkan baris ini untuk transparansi */
+    /* Bisa ubah nilainya, misal 0.7 (lebih solid), 0.3 (lebih transparan) */
+    transition: opacity 0.3s; /* animasi ketika hover/transisi */
+    .kemenkes-logo:hover {
+    opacity: 0.88;
+}
+}
